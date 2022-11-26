@@ -24,6 +24,7 @@
 		3CF349F12932037C00A702CE /* QuoteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF349EF2932037C00A702CE /* QuoteViewCell.xib */; };
 		3CF349F32932040200A702CE /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF349F22932040200A702CE /* ErrorModel.swift */; };
 		3CF349F62932143800A702CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF349F52932143800A702CE /* Utils.swift */; };
+		3CF349F8293227C000A702CE /* TvSeriesWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF349F7293227C000A702CE /* TvSeriesWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3CF349EF2932037C00A702CE /* QuoteViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteViewCell.xib; sourceTree = "<group>"; };
 		3CF349F22932040200A702CE /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		3CF349F52932143800A702CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		3CF349F7293227C000A702CE /* TvSeriesWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSeriesWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				3CE22DA52931154C009D7ABA /* СharactersCollectionViewController.swift */,
 				3CE22DA829311569009D7ABA /* CharacterViewController.swift */,
 				3CF349EC2932033600A702CE /* QuoteViewController.swift */,
+				3CF349F7293227C000A702CE /* TvSeriesWebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				3CF349EB2931FBA000A702CE /* Quotes.swift in Sources */,
 				3CE22DA62931154C009D7ABA /* СharactersCollectionViewController.swift in Sources */,
+				3CF349F8293227C000A702CE /* TvSeriesWebViewController.swift in Sources */,
 				3C1F8285292F5B5800120CF2 /* AppDelegate.swift in Sources */,
 				3CF349ED2932033600A702CE /* QuoteViewController.swift in Sources */,
 				3CE22DA929311569009D7ABA /* CharacterViewController.swift in Sources */,
