@@ -35,7 +35,6 @@ struct Character: Decodable {
 }
 
 enum Status: String, Codable {
-    
     case alive = "Alive"
     case deceased = "Deceased"
     case presumedDead = "Presumed dead"
