@@ -16,7 +16,7 @@ class EpisodeViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: EpisodeViewCell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeViewCell
         
-        NetworkManager.shared.getQuotesData {  result in
+        NetworkManager.shared.getEpisodesData {  result in
             
             switch result {
             case .success(let data):
@@ -27,7 +27,7 @@ class EpisodeViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
                 
             case.failure(_):
-                print("Catch: MovieListVC.swift : getMovieData")
+                print("Catch")
             }
         }
         return cell
@@ -43,14 +43,8 @@ class EpisodeViewController: UIViewController, UITableViewDataSource, UITableVie
         episodeTableView.delegate = self
        
         
-        // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-       
-        
-    }
+ 
     
 
 

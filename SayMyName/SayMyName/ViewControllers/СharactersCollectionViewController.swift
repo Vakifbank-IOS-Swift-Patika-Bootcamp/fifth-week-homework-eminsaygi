@@ -45,7 +45,7 @@ class CharactersCollectionViewController: UICollectionViewController {
         return cell
     }
     private func fetchCharacter() {
-        NetworkManager.shared.fetchCharacters(from: charactersUrl) { [weak self] result in
+        NetworkManager.shared.fetchCharacters() { [weak self] result in
             switch result {
                 
             case .success(let data):

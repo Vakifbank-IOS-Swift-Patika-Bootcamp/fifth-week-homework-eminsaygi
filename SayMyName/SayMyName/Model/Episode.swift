@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WelcomeElement: Codable {
+struct EpisodeElement: Codable {
     let episodeID: Int
     let title, season, airDate: String
     let characters: [String]
@@ -27,4 +27,4 @@ enum Series: String, Codable {
     case breakingBad = "Breaking Bad"
 }
 
-typealias Welcome = [WelcomeElement]
+typealias Episode = [EpisodeElement]

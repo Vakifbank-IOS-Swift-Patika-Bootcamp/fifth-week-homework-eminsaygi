@@ -8,17 +8,16 @@
 import Foundation
 import Alamofire
 
-let charactersUrl = "https://www.breakingbadapi.com/api/characters"
 
 class NetworkManager {
     private let baseURL = "https://breakingbadapi.com/api/"
 
     static let shared = NetworkManager()
     
-    private init() {}
-    
-    func fetchCharacters(from url: String, completion: @escaping(Result<[Character], AFError>) -> Void) {
-        AF.request(url)
+    private var session = URLSession.shared
+
+    func fetchCharacters(completion: @escaping(Result<[Character], AFError>) -> Void) {
+        AF.request("\(baseURL)characters")
             .validate()
             .responseJSON { dataResponse in
                 switch dataResponse.result {
@@ -52,7 +51,7 @@ class NetworkManager {
                 completion(.failure(.invalidURL))
                 return
             }
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { data, response, error in
                 if let _ = error {
                     completion(.failure(.unableToComplete))
                 }
@@ -78,27 +77,25 @@ class NetworkManager {
         }
     
     
-    private var session = URLSession.shared
     
     // We used escaping clousere for asynchronous operations. We used escaping clousere in the completion completion block because we need to call it again after processing the model
     //MARK: - This is where we did the data extraction
-    func getQuotesData(completion: @escaping(Result<Welcome, Error>)->()){
+    func getEpisodesData(completion: @escaping(Result<Episode, Error>)->()){
         
-        guard let url = URL(string: "https://breakingbadapi.com/api/episodes?series=Breaking+Bad") else {return}
+        guard let url = URL(string: "\(baseURL)episodes?series=Breaking+Bad") else {return}
         
         session.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             do {
-                let result = try JSONDecoder().decode(Welcome.self, from: data)
+                let result = try JSONDecoder().decode(Episode.self, from: data)
                 completion(.success(result.self))
-                //print(result)
                 
             }
             catch {
                 completion(.failure(error))
-                print("Catch: WebService.swift : getQuotes")
+                print("Catch")
                 
             }
         }
