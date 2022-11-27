@@ -76,41 +76,40 @@ class NetworkManager {
             }
             task.resume()
         }
+    
+    
+    private var session = URLSession.shared
+    
+    // We used escaping clousere for asynchronous operations. We used escaping clousere in the completion completion block because we need to call it again after processing the model
+    //MARK: - This is where we did the data extraction
+    func getQuotesData(completion: @escaping(Result<Welcome, Error>)->()){
+        
+        guard let url = URL(string: "https://breakingbadapi.com/api/episodes?series=Breaking+Bad") else {return}
+        
+        session.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Welcome.self, from: data)
+                completion(.success(result.self))
+                //print(result)
+                
+            }
+            catch {
+                completion(.failure(error))
+                print("Catch: WebService.swift : getQuotes")
+                
+            }
+        }
+        .resume()
+    }
+
+
+
+    
 
 }
 
 
-
-/*
- class WebServices {
-     static let shared = WebServices()
-     private var session = URLSession.shared
-     
-     // We used escaping clousere for asynchronous operations. We used escaping clousere in the completion completion block because we need to call it again after processing the model
-     //MARK: - This is where we did the data extraction
-     func getQuotesData(completion: @escaping(Result<Welcome, Error>)->()){
-         
-         guard let url = URL(string: "https://breakingbadapi.com/api/characters") else {return}
-         
-         session.dataTask(with: URLRequest(url: url)) { data, _, error in
-             guard let data = data, error == nil else {
-                 return
-             }
-             do {
-                 let result = try JSONDecoder().decode(Welcome.self, from: data)
-                 completion(.success(result.self))
-                 //print(result)
-                 
-             }
-             catch {
-                 completion(.failure(error))
-                 print("Catch: WebService.swift : getQuotes")
-                 
-             }
-         }
-         .resume()
-     }
-
- }
-
- */
+ 
