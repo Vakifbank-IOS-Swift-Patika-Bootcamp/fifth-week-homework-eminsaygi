@@ -22,6 +22,11 @@ Notes Screen | Edit Note Screen
 :-------------------------: | :-------------------------:
 <img width="408" alt="Screenshot 2022-12-05 at 00 46 23" src="https://user-images.githubusercontent.com/44553346/205517530-3b38537c-d648-411c-9f06-e632c6922058.png"> | <img width="410" alt="Screenshot 2022-12-05 at 00 46 40" src="https://user-images.githubusercontent.com/44553346/205517533-7656dde8-2ab9-42c5-8dcd-c3b69185f898.png">
 
+
+Leet Code |
+:-------------------------: |
+<img width="600" alt="Screenshot 2022-12-05 at 00 56 21" src="https://user-images.githubusercontent.com/44553346/205517744-931e5f53-be2c-4cba-875f-84368e21b581.png">
+
 ## 1- Breaking Bad api uygulamamıza persistant özelliği kazandıracağız.
 
 ### Uygulamamıza Yeni bir tab ekleyeceğiz: Notlar
@@ -51,7 +56,6 @@ Notes Screen | Edit Note Screen
  
 ### 4- Leet Code üzerinden seçilmiş 3 soru çözülecek ve soruya ait görseller repoya eklenecek. 
 
-<img width="600" alt="Screenshot 2022-12-05 at 00 56 21" src="https://user-images.githubusercontent.com/44553346/205517744-931e5f53-be2c-4cba-875f-84368e21b581.png">
 
 Soru çözüldükten sonra submission kısmından görseli alabilirsiniz. Örn:
 
