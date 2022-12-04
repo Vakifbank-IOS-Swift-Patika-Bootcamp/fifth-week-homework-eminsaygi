@@ -16,13 +16,12 @@ class NotesEditViewController: UIViewController {
       let episodeTextField = UITextField()
       let saveButton = UIButton()
     
-    let notes = ""
-    let episode = ""
-    let season = ""
+    var notes = ""
+    var episode = ""
+    var season = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         stackView.axis = .vertical
                 stackView.distribution = .fillEqually
                 stackView.alignment = .fill
@@ -40,6 +39,16 @@ class NotesEditViewController: UIViewController {
                 episodeTextField.placeholder = "Enter text here"
                 episodeTextField.borderStyle = .roundedRect
                 episodeTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        if notesTextField.text == "" {
+            notesTextField.text = notes
+              }
+              if seasonTextField.text == "" {
+                  seasonTextField.text = season
+              }
+              if episodeTextField.text == "" {
+                  episodeTextField.text = episode
+              }
                 
                 saveButton.setTitle("Save", for: .normal)
                 saveButton.setTitleColor(.blue, for: .normal)
@@ -70,7 +79,6 @@ class NotesEditViewController: UIViewController {
 
     }
     @objc private func didTapButton(){
-        print("ASDSDSds")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let saveData = NSEntityDescription.insertNewObject(forEntityName: "BBData", into: context)
@@ -96,6 +104,9 @@ class NotesEditViewController: UIViewController {
         
         // Kaydedilen bir data olduğu haberini gönderiyoruz. Bunu da newData key'i ile yapıyoruz.
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "newData"), object: nil)
+        notesTextField.text = ""
+        seasonTextField.text = ""
+        episodeTextField.text    = ""
     }
  
     private func savedAlert(title: String, message: String) {

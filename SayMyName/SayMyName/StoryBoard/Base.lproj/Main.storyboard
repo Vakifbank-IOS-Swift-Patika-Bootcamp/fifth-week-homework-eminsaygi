@@ -268,11 +268,11 @@
             </objects>
             <point key="canvasLocation" x="478.62595419847327" y="831.69014084507046"/>
         </scene>
-        <!--Item-->
+        <!--Notes-->
         <scene sceneID="5v9-Vx-p7r">
             <objects>
                 <navigationController id="qeR-LX-pkx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="note.text" catalog="system" id="fdw-fT-l8v"/>
+                    <tabBarItem key="tabBarItem" title="Notes" image="note.text" catalog="system" id="fdw-fT-l8v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ieJ-Zc-TuV">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

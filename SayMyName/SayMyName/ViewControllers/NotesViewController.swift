@@ -14,6 +14,10 @@ class NotesViewController: UIViewController {
     private var episodeArray = [String]()
     private var seasonArray = [String]()
     private var idArray = [UUID]()
+    
+    private var notes = ""
+    private var episode = ""
+    private var season = ""
     private let floatingButton: UIButton = {
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -56,7 +60,7 @@ class NotesViewController: UIViewController {
     }
     
     @objc private func didTapButton(){
-        performSegue(withIdentifier: "notesEditVC", sender: nil) // segue çalışması için gerekli metod    }
+        performSegue(withIdentifier: "notesEditVC", sender: nil) // segue çalışması için gerekli metod    
     }
   
 
@@ -69,21 +73,26 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : NotesTableViewCell = notesTableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesTableViewCell
-        cell.episodeLabel.text = notesArray[indexPath.row]
-        cell.seasonLabel.text = seasonArray[indexPath.row]
-        cell.chapterLabel.text = episodeArray[indexPath.row]
+        cell.episodeLabel.text = "Notes: \(notesArray[indexPath.row])"
+        cell.seasonLabel.text = "Season: \(seasonArray[indexPath.row])"
+        cell.chapterLabel.text = "Chapter: \(episodeArray[indexPath.row])"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        notes = notesArray[indexPath.row]
+        episode = episodeArray[indexPath.row]
+        season = seasonArray[indexPath.row]
         performSegue(withIdentifier: "notesEditVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "notesEditVC"  {
             let detailVC = segue.destination as? NotesEditViewController
-            detailVC?.notes = episodeLabel.text
-            detailVC?.movieIdArray = movieIdArray
+            
+            detailVC?.notes = notes
+            detailVC?.episode = episode
+            detailVC?.season = season
             
             
         }
